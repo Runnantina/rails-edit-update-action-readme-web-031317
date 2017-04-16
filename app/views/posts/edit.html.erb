@@ -1,0 +1,14 @@
+<!-- get '/posts/:id/edit', to 'posts#edit' -->
+
+<%= form_tag post_path(@post), method: "put" do %>
+  <label>Post title:</label><br>
+  <%= text_field_tag :title, @post.title %><br>
+
+  <label>Post Description</label><br>
+  <%= text_area_tag :description, @post.description %><br>
+
+  <%= submit_tag "Submit Post" %>
+  <!-- so reason why we need to have 'method: "put"' is to tell the server when we click 'submit' where the data is suppose to go.
+that's when within routes.rb, put 'posts/:id', to: 'posts#update' comes into play. it tells the server it needs to be updated and then taken to post_path(@post)
+ -->
+<% end %>
